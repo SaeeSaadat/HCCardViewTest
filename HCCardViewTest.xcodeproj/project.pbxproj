@@ -20,6 +20,7 @@
 		5B74F2B325DA8EE200A44875 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2B225DA8EE200A44875 /* CardModel.swift */; };
 		5B74F2B825DACAF400A44875 /* AddCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2B625DACAF400A44875 /* AddCardCollectionViewCell.swift */; };
 		5B74F2B925DACAF400A44875 /* AddCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2B725DACAF400A44875 /* AddCardCollectionViewCell.xib */; };
+		5B74F2BD25DB28ED00A44875 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2BC25DB28ED00A44875 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5B74F2B225DA8EE200A44875 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5B74F2B625DACAF400A44875 /* AddCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B74F2B725DACAF400A44875 /* AddCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B74F2BC25DB28ED00A44875 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				5B74F29625DA77A700A44875 /* LaunchScreen.storyboard */,
 				5B74F29925DA77A700A44875 /* Info.plist */,
 				5B74F2A925DA827900A44875 /* Fonts */,
+				5B74F2BC25DB28ED00A44875 /* Extensions.swift */,
 			);
 			path = HCCardViewTest;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				5B74F28C25DA77A500A44875 /* AppDelegate.swift in Sources */,
 				5B74F28E25DA77A500A44875 /* SceneDelegate.swift in Sources */,
 				5B74F2B325DA8EE200A44875 /* CardModel.swift in Sources */,
+				5B74F2BD25DB28ED00A44875 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

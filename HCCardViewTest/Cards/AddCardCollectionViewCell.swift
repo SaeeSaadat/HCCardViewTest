@@ -41,27 +41,29 @@ class AddCardCollectionViewCell: UICollectionViewCell {
     
     func createAnimations(startAfter: Bool = false) {
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { [weak self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true, block: { [weak self] timer in
             guard let self = self else { return }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
                 self.setupCircleImages()
             })
             
-            UIView.animateKeyframes(withDuration: 4.0, delay: 1.0, options: [], animations: {
+            let animationOption: UIView.AnimationOptions = .curveEaseInOut
+            let keyframeAnimationOption: UIView.KeyframeAnimationOptions = UIView.KeyframeAnimationOptions(rawValue: animationOption.rawValue)
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [keyframeAnimationOption], animations: {
                 
                 for i in 0..<self.circles.count {
                     let circle = self.circles[i]
-                    circle.yConstraint?.constant = self.animationView.frame.height
-                    UIView.addKeyframe(withRelativeStartTime: (Double(i) * 0.25)/5, relativeDuration: 0.20, animations: {
+                    circle.yConstraint?.constant = (self.animationView.frame.height + circle.frame.height) / 2 + 5
+                    UIView.addKeyframe(withRelativeStartTime: (Double(i) * 0.15)/1.5, relativeDuration: 0.35 , animations: {
                         self.layoutIfNeeded()
                     })
                 }
                 
-                for i in stride(from: self.circles.count - 1, through: 0, by: -1) {
+                for i in 0..<self.circles.count {
                     let circle = self.circles[i]
                     circle.yConstraint?.constant = 0
-                    UIView.addKeyframe(withRelativeStartTime: (4 + Double(i) * 0.25) / 5, relativeDuration: 0.20, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: (0.8 + Double(i) * 0.15)/1.5, relativeDuration: 0.35, animations: {
                         self.layoutIfNeeded()
                     })
                 }
@@ -75,6 +77,7 @@ class AddCardCollectionViewCell: UICollectionViewCell {
             })
             
         }
+        
     }
     
     func startAnimation() {
@@ -91,17 +94,14 @@ class AddCardCollectionViewCell: UICollectionViewCell {
     private func createCircle() -> BankCircle{
         
         let circle = BankCircle()
-        circle.awakeFromNib()
         circle.translatesAutoresizingMaskIntoConstraints = false
+        circle.backgroundColor = .white
+        circle.contentMode = .scaleAspectFit
+        
         NSLayoutConstraint.activate([
             circle.heightAnchor.constraint(equalToConstant: 30),
             circle.widthAnchor.constraint(equalToConstant: 30),
         ])
-        circle.layer.cornerRadius = 15
-        circle.clipsToBounds = true
-        circle.backgroundColor = .white
-        
-        circle.contentMode = .scaleAspectFill
         
         return circle
     }
@@ -130,20 +130,44 @@ class AddCardCollectionViewCell: UICollectionViewCell {
 }
 
 fileprivate class BankCircle: UIView {
-    var imageView = UIImageView()
+
+    var imageView = UIImageView() //RoundImageView()
     var yConstraint: NSLayoutConstraint?
-    override func awakeFromNib() {
-        self.imageView = UIImageView()
-        self.addSubview(self.imageView)
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
-            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5)
-        
+            imageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -10),
+            imageView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -10),
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
+        needsUpdateConstraints()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let radius: CGFloat = self.bounds.size.height / 2.0
+        layer.cornerRadius = radius
+        clipsToBounds = true
+        clipsToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 1
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: frame.height / 2.0).cgPath
     }
 }
+
