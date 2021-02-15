@@ -40,9 +40,6 @@ class AddCardCollectionViewCell: UICollectionViewCell {
     }
     
     func createAnimations(startAfter: Bool = false) {
-//        UIView.animate(withDuration: 1.0, delay: 0.4, options: [.repeat, .curveEaseInOut], animations: {
-//
-//        }, completion: nil)
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { [weak self] timer in
             guard let self = self else { return }
@@ -56,7 +53,7 @@ class AddCardCollectionViewCell: UICollectionViewCell {
                 for i in 0..<self.circles.count {
                     let circle = self.circles[i]
                     circle.yConstraint?.constant = self.animationView.frame.height
-                    UIView.addKeyframe(withRelativeStartTime: (Double(i) * 0.25)/5, relativeDuration: 0.25, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: (Double(i) * 0.25)/5, relativeDuration: 0.20, animations: {
                         self.layoutIfNeeded()
                     })
                 }
@@ -64,18 +61,19 @@ class AddCardCollectionViewCell: UICollectionViewCell {
                 for i in stride(from: self.circles.count - 1, through: 0, by: -1) {
                     let circle = self.circles[i]
                     circle.yConstraint?.constant = 0
-                    UIView.addKeyframe(withRelativeStartTime: (4 + Double(i) * 0.25) / 5, relativeDuration: 0.25, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: (4 + Double(i) * 0.25) / 5, relativeDuration: 0.20, animations: {
                         self.layoutIfNeeded()
                     })
                 }
                 
-            }, completion: { _ in
-                print("completed")
-            })
+            }, completion: nil)
         })
         
         if startAfter {
-            timer!.fire()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.timer!.fire()
+            })
+            
         }
     }
     
