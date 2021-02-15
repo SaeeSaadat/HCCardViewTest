@@ -13,6 +13,11 @@
 		5B74F29325DA77A500A44875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F29125DA77A500A44875 /* Main.storyboard */; };
 		5B74F29525DA77A700A44875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F29425DA77A700A44875 /* Assets.xcassets */; };
 		5B74F29825DA77A700A44875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F29625DA77A700A44875 /* LaunchScreen.storyboard */; };
+		5B74F2A525DA7CFC00A44875 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2A325DA7CFC00A44875 /* CardCollectionViewCell.swift */; };
+		5B74F2A625DA7CFC00A44875 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2A425DA7CFC00A44875 /* CardCollectionViewCell.xib */; };
+		5B74F2AC25DA828600A44875 /* gholam_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2AA25DA828600A44875 /* gholam_regular.otf */; };
+		5B74F2AD25DA828600A44875 /* gholam_bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2AB25DA828600A44875 /* gholam_bold.otf */; };
+		5B74F2B325DA8EE200A44875 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2B225DA8EE200A44875 /* CardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		5B74F29425DA77A700A44875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B74F29725DA77A700A44875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B74F29925DA77A700A44875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B74F2A325DA7CFC00A44875 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B74F2A425DA7CFC00A44875 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B74F2AA25DA828600A44875 /* gholam_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gholam_regular.otf; sourceTree = "<group>"; };
+		5B74F2AB25DA828600A44875 /* gholam_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gholam_bold.otf; sourceTree = "<group>"; };
+		5B74F2B225DA8EE200A44875 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,36 @@
 		5B74F28A25DA77A500A44875 /* HCCardViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				5B74F2A225DA7CB100A44875 /* Cards */,
 				5B74F28B25DA77A500A44875 /* AppDelegate.swift */,
 				5B74F28D25DA77A500A44875 /* SceneDelegate.swift */,
 				5B74F28F25DA77A500A44875 /* ViewController.swift */,
+				5B74F2B225DA8EE200A44875 /* CardModel.swift */,
 				5B74F29125DA77A500A44875 /* Main.storyboard */,
 				5B74F29425DA77A700A44875 /* Assets.xcassets */,
 				5B74F29625DA77A700A44875 /* LaunchScreen.storyboard */,
 				5B74F29925DA77A700A44875 /* Info.plist */,
+				5B74F2A925DA827900A44875 /* Fonts */,
 			);
 			path = HCCardViewTest;
+			sourceTree = "<group>";
+		};
+		5B74F2A225DA7CB100A44875 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				5B74F2A325DA7CFC00A44875 /* CardCollectionViewCell.swift */,
+				5B74F2A425DA7CFC00A44875 /* CardCollectionViewCell.xib */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		5B74F2A925DA827900A44875 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5B74F2AB25DA828600A44875 /* gholam_bold.otf */,
+				5B74F2AA25DA828600A44875 /* gholam_regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +155,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B74F2A625DA7CFC00A44875 /* CardCollectionViewCell.xib in Resources */,
+				5B74F2AD25DA828600A44875 /* gholam_bold.otf in Resources */,
 				5B74F29825DA77A700A44875 /* LaunchScreen.storyboard in Resources */,
 				5B74F29525DA77A700A44875 /* Assets.xcassets in Resources */,
+				5B74F2AC25DA828600A44875 /* gholam_regular.otf in Resources */,
 				5B74F29325DA77A500A44875 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,9 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B74F2A525DA7CFC00A44875 /* CardCollectionViewCell.swift in Sources */,
 				5B74F29025DA77A500A44875 /* ViewController.swift in Sources */,
 				5B74F28C25DA77A500A44875 /* AppDelegate.swift in Sources */,
 				5B74F28E25DA77A500A44875 /* SceneDelegate.swift in Sources */,
+				5B74F2B325DA8EE200A44875 /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPWS726989;
 				INFOPLIST_FILE = HCCardViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +333,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.saadat.saee.HCCardViewTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPWS726989;
 				INFOPLIST_FILE = HCCardViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.saadat.saee.HCCardViewTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
