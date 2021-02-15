@@ -14,6 +14,10 @@ struct CardModel {
     let expDate: String?
 }
 
+enum CustomCardModel {
+    case addCard
+}
+
 enum Bank: String {
     case ayande = "Ayande"
     case eghtesad = "Eghtesad-Novin"

@@ -55,8 +55,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         let gradientBackground = CAGradientLayer()
         gradientBackground.colors = [backgroundColors[0].cgColor, backgroundColors[1].cgColor]
         gradientBackground.frame = self.contentView.frame
-        gradientBackground.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientBackground.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientBackground.startPoint = CGPoint(x: 0.2, y: 0.8)
+        gradientBackground.endPoint = CGPoint(x: 0.6, y: 0.2)
         
         self.contentView.layer.insertSublayer(gradientBackground, at: 0)
         self.contentView.layer.cornerRadius = 10.0

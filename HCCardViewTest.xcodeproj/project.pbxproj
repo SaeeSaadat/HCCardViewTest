@@ -18,6 +18,8 @@
 		5B74F2AC25DA828600A44875 /* gholam_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2AA25DA828600A44875 /* gholam_regular.otf */; };
 		5B74F2AD25DA828600A44875 /* gholam_bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2AB25DA828600A44875 /* gholam_bold.otf */; };
 		5B74F2B325DA8EE200A44875 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2B225DA8EE200A44875 /* CardModel.swift */; };
+		5B74F2B825DACAF400A44875 /* AddCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B74F2B625DACAF400A44875 /* AddCardCollectionViewCell.swift */; };
+		5B74F2B925DACAF400A44875 /* AddCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B74F2B725DACAF400A44875 /* AddCardCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		5B74F2AA25DA828600A44875 /* gholam_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gholam_regular.otf; sourceTree = "<group>"; };
 		5B74F2AB25DA828600A44875 /* gholam_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gholam_bold.otf; sourceTree = "<group>"; };
 		5B74F2B225DA8EE200A44875 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		5B74F2B625DACAF400A44875 /* AddCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B74F2B725DACAF400A44875 /* AddCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			children = (
 				5B74F2A325DA7CFC00A44875 /* CardCollectionViewCell.swift */,
 				5B74F2A425DA7CFC00A44875 /* CardCollectionViewCell.xib */,
+				5B74F2B625DACAF400A44875 /* AddCardCollectionViewCell.swift */,
+				5B74F2B725DACAF400A44875 /* AddCardCollectionViewCell.xib */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B74F2B925DACAF400A44875 /* AddCardCollectionViewCell.xib in Resources */,
 				5B74F2A625DA7CFC00A44875 /* CardCollectionViewCell.xib in Resources */,
 				5B74F2AD25DA828600A44875 /* gholam_bold.otf in Resources */,
 				5B74F29825DA77A700A44875 /* LaunchScreen.storyboard in Resources */,
@@ -171,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B74F2B825DACAF400A44875 /* AddCardCollectionViewCell.swift in Sources */,
 				5B74F2A525DA7CFC00A44875 /* CardCollectionViewCell.swift in Sources */,
 				5B74F29025DA77A500A44875 /* ViewController.swift in Sources */,
 				5B74F28C25DA77A500A44875 /* AppDelegate.swift in Sources */,
