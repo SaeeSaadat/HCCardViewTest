@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var fakeView: UIImageView!
+    @IBOutlet weak var avatarIcon: UIImageView!
     
     private var cards: [CardModel] = []
     private var customCards: [CustomCardModel] = [.addCard]
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
         
         setupCards()
         setupCollectionView()
+        setupRestOfTheView()
         
     }
     
@@ -84,6 +87,15 @@ class ViewController: UIViewController {
         collectionView.scrollToItem(at: IndexPath(row: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
         indexOfMajorCardBeforeDragging = sender.currentPage
     }
+    
+    private func setupRestOfTheView() {
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.fakeTapResponder))
+        self.fakeView.addGestureRecognizer(recognizer)
+        
+        let recognizer2 = UITapGestureRecognizer(target: self, action: #selector(self.fakeTapResponder2))
+        self.avatarIcon.addGestureRecognizer(recognizer2)
+    }
 
 }
 
@@ -116,6 +128,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        haha()
+    }
 }
 
 extension ViewController {
@@ -135,7 +151,7 @@ extension ViewController {
 
             let numberOfIndexesToSwipe = min (Int(abs(velocity.x * 0.7)), abs(indexOfMajorCardBeforeDragging - (hasEnoughVelocityToSlideToTheNextCell ? cardsCount-1 : 0)) )
             let snapToIndex = indexOfMajorCardBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1) * numberOfIndexesToSwipe
-            let toValue = (collectionViewLayout.itemSize.width + 15) * CGFloat(snapToIndex)
+            let toValue = (collectionViewLayout.itemSize.width + 15) * CGFloat(snapToIndex) - 10
             indexOfMajorCardBeforeDragging = snapToIndex
 
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
@@ -161,4 +177,81 @@ extension ViewController {
         return max(0, min(cardsCount - 1, index))
     }
     
+}
+
+// don't look at this part
+extension ViewController {
+    
+    private func haha(text: String = "Hire Me :)))))) Tnx! ^_^") {
+        
+        let dimView = UIView()
+        dimView.tag = 10005
+        dimView.translatesAutoresizingMaskIntoConstraints = false
+        
+        dimView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        dimView.isOpaque = true
+        
+        let messageView = UIView()
+        messageView.translatesAutoresizingMaskIntoConstraints = false
+        dimView.addSubview(messageView)
+        NSLayoutConstraint.activate([
+            messageView.centerYAnchor.constraint(equalTo: dimView.centerYAnchor),
+            messageView.centerXAnchor.constraint(equalTo: dimView.centerXAnchor),
+            messageView.heightAnchor.constraint(equalToConstant: 250),
+            messageView.leadingAnchor.constraint(equalTo: dimView.leadingAnchor, constant: 20),
+            messageView.trailingAnchor.constraint(equalTo: dimView.trailingAnchor, constant: -20)
+        ])
+        messageView.backgroundColor = #colorLiteral(red: 0.001967329561, green: 0.08230567701, blue: 0, alpha: 1)
+        messageView.layer.borderWidth = 1.0
+        messageView.layer.borderColor = UIColor.white.cgColor
+        messageView.layer.cornerRadius = 10
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.textColor = .white
+        label.font = UIFont(name: "DIN condensed", size: 50) ?? .systemFont(ofSize: 50)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        messageView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: messageView.centerYAnchor),
+            label.centerXAnchor.constraint(equalTo: messageView.centerXAnchor),
+            label.leadingAnchor.constraint(equalTo: messageView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: messageView.trailingAnchor)
+        ])
+        label.minimumScaleFactor = 0.5
+     
+        UIView.transition(with: self.view, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            
+            self.view.addSubview(dimView)
+            self.view.bringSubviewToFront(dimView)
+            
+            NSLayoutConstraint.activate([
+                dimView.topAnchor.constraint(equalTo: self.view.topAnchor),
+                dimView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                dimView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                dimView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            ])
+            
+        }, completion: nil)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.removeHaha))
+        dimView.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc private func removeHaha() {
+        UIView.transition(with: self.view, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            self.view.viewWithTag(10005)?.removeFromSuperview()
+        }, completion: nil)
+    }
+    
+    @objc private func fakeTapResponder() {
+        haha(text: "Come on of course i didn't implement this part! i had less than a day!")
+    }
+   
+    @objc private func fakeTapResponder2() {
+        haha(text: "Saee Saadat :) Call me 09363881556")
+    }
 }
