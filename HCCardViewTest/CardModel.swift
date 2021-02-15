@@ -22,6 +22,11 @@ enum Bank: String {
     case ayande = "Ayande"
     case eghtesad = "Eghtesad-Novin"
     case mellat = "Mellat"
+    case keshavarzi = "Keshavarzi"
+    case sarmaye = "Sarmaye"
+    case maskan = "Maskan"
+    case shahr = "Shahr"
+    case parsian = "Parsian"
     
     var logo: UIImage? {
         return UIImage(named: self.rawValue + "-logo")
@@ -34,6 +39,8 @@ enum Bank: String {
             return "بانک ملت"
         case .eghtesad:
             return "بانک اقتصاد نوین"
+        default:
+            return "سام آدر بانک"
         }
     }
     var color: UIColor {
